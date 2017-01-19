@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Blackjack
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        /*
+        public static bool Round()
         {
+
+        }
+        */
+
+        static void Main()
+        {
+
         }
     }
 }
