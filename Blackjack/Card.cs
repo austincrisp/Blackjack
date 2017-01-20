@@ -8,23 +8,21 @@ namespace Blackjack
 {
     public class Card
     {
-        public enum Suit
-        {
-            Spade, Club, Diamond, Heart
-        }
-
-        public enum Face
-        {
-            Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
-        }
-
         public int value;
+        public Suit suit;
+        public Face face;
 
-        public Card() {  }
+        public Card() { }
+
+        public Card(Suit _suit, Face _face)
+        {
+            suit = _suit;
+            face = _face;
+        }
 
         public int GetValue()
         {
-            return value;
+            return (int)face;
         }
     }
 }

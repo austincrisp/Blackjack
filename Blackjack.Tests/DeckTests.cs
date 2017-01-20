@@ -9,8 +9,22 @@ namespace Blackjack.Tests
         [TestMethod]
         public void DeckIsFull()
         {
-            var listofCards = Deck.DealXCards(1);
-            Assert.AreEqual(52, listofCards.Count);
+            var sut = Deck.CreateDeck();
+            Assert.AreEqual(52, sut.Count);
+        }
+
+        [TestMethod]
+        public void DeckValuesAreSet()
+        {
+            var sut = Deck.CreateDeck();
+            Assert.AreEqual(2, sut[2].GetValue());
+        }
+
+        [TestMethod]
+        public void CardCanBeCreatedWithArgs()
+        {
+            var sut = new Card(Suit.Spade, Face.Eight);
+            Assert.AreEqual(8, sut.GetValue());
         }
     }
 }

@@ -17,7 +17,13 @@ namespace Blackjack
 
         static void Main()
         {
+            List<Card> listOfCards = Deck.CreateDeck();
+            Deck.Shuffle(listOfCards);
 
+            foreach (var card in listOfCards)
+            {
+                Console.WriteLine(card.value);
+            }
         }
     }
 }
