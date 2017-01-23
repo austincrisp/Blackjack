@@ -8,24 +8,24 @@ namespace Blackjack
 {
     public enum Suit
     {
-        Spade, Club, Diamond, Heart
+        Spades, Clubs, Diamonds, Hearts
     }
 
     public enum Face
     {
-        Ace = 1,
-        Two = 2,
+        Ace   = 1,
+        Two   = 2,
         Three = 3,
-        Four = 4,
-        Five = 5,
-        Six = 6,
+        Four  = 4,
+        Five  = 5,
+        Six   = 6,
         Seven = 7,
         Eight = 8,
-        Nine = 9,
-        Ten = 10,
-        Jack = 10,
+        Nine  = 9,
+        Ten   = 10,
+        Jack  = 10,
         Queen = 10,
-        King = 10
+        King  = 10
     }
 
     public class Deck
@@ -54,22 +54,25 @@ namespace Blackjack
             return cards;
         }
 
+        
         // Using Fisher-Yates method for shuffling (not mine)
-        public static void Shuffle(List<Card> cards)
+        public static void Shuffle(List<Card> cards, Random random)
         {
-            var rng = new Random();
-            int count = cards.Count;
-
-            while (count < 1)
+            for (var i = 0; i < cards.Count; i++)
             {
-                int draw = rng.Next(0, count);
-
-                int temp = cards[draw];
-                cards[draw] = cards[count - 1];
-                cards[count - 1] = temp;
-
-                count--;
+                var temp = cards[i];
+                var index = random.Next(0, cards.Count);
+                cards[i] = cards[index];
+                cards[index] = temp;
             }
         }
+
+        public static Card DrawACard(List<Card> cards)
+        {
+            Card draw = cards[cards.Count - 1];
+            cards.RemoveAt(cards.Count - 1);
+            return draw;
+        }
+        
     }
 }
