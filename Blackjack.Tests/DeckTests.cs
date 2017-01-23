@@ -23,7 +23,7 @@ namespace Blackjack.Tests
         [TestMethod]
         public void CardCanBeCreatedWithArgs()
         {
-            var sut = new Card(Suit.Spade, Face.Eight);
+            var sut = new Card(Suit.Spades, Face.Eight);
             Assert.AreEqual(8, sut.GetValue());
         }
     }

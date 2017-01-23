@@ -55,7 +55,18 @@ namespace Blackjack
                 }
                 else
                 {
+                    Console.WriteLine("Would you like to Hit or Stand?");
+                    var input = Console.ReadLine();
 
+                    if (input == "Hit")
+                    {
+                        playerHand.Add(Deck.DrawACard(listOfCards));
+                        foreach (var drawn in playerHand)
+                        {
+                            playerTotal += drawn.value;
+                        }
+                        Console.WriteLine("Player Current Total: {0} ", playerTotal);
+                    }
                 }
             }
         }
