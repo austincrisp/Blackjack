@@ -51,7 +51,20 @@ namespace Blackjack
                     dealerTotal = dealerHand[0].value + dealerHand[1].value;
                     Console.WriteLine("Dealer Current Total: {0} ", dealerTotal);
 
-                    round++;
+                    if (playerTotal == 21)
+                    {
+                        Console.WriteLine("Sorry, you busted!");
+                        noWinner = false;
+                    }
+                    else if (dealerTotal == 21)
+                    {
+                        Console.WriteLine("Dealer busted! You Win!");
+                        noWinner = false;
+                    }
+                    else
+                    {
+                        round++;
+                    }
                 }
                 else
                 {
@@ -61,10 +74,11 @@ namespace Blackjack
                     if (input == "Hit")
                     {
                         playerHand.Add(Deck.DrawACard(listOfCards));
-                        foreach (var drawn in playerHand)
-                        {
-                            playerTotal += drawn.value;
-                        }
+                        playerTotal += playerHand.Sum(x => x.value); 
+                        Console.WriteLine("Player Current Total: {0} ", playerTotal);
+                    }
+                    else
+                    {
                         Console.WriteLine("Player Current Total: {0} ", playerTotal);
                     }
                 }
